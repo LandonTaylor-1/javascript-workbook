@@ -1,6 +1,14 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+#move {
+    font-family: 'Bangers', cursive;
+    font-size: 5em;
+    color: blue;
 }
 
 #main {
@@ -23,4 +31,11 @@ body {
 #box1 {
     border-bottom: 2px white solid;
     border-right: 2px white solid;
+}
+
+#win {
+    font-family: 'Bangers', cursive;
+    font-size: 5em;
+    color: blue;
+    text-align: center;
 }

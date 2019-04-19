@@ -57,17 +57,27 @@ function checkForWin() {
   // if any of the win functions pass then the game will declare a winner
   if (horizontalWin() || verticalWin() || diagonalWin()) {
     console.log(playerTurn + " is the WINNER!!!")
+    document.getElementById('win').innerHTML = (playerTurn + " is the Winner!")
     return true
   } else return false
 }
 
-function ticTacToe(row, column) {
+// to get the game to print to the DOM I had to create a third parameter
+// in the HTML when the onclick event calls the function the third parameter
+// uses 'this' to grab the HTML element. this allows the playerTurn to print
+// to the board on the spot that was clicked.
+
+function ticTacToe(row, column, event) {
   // if the coordinate is empty then the player can mark the spot
   if (board[row][column] === " ") { //board [first array] [second array]
     board[row][column] = playerTurn //when a coordinate is selected it will be marked
+    document.getElementById(event.id).innerHTML = playerTurn;
+    // this uses the third parameter in the function to grab the board
+    // location that was clicked and print the playerTurn to the id of the onclick event
    } else {
     // if the coordinate is already filled the player must choose another spot
     console.log("Invalid move. Spot already taken. Please select another spot.")
+    document.getElementById('win').innerHTML = ("Invalid move, spot already taken.<br>Please select another spot.")
     return playerTurn //this calls player turn for the 2nd turn so the player doesn;t lose a turn for choosing an invalid spot
     }
   checkForWin(); //after each coordinate is marked it will then check against the win finctions to see if the game should continue
@@ -78,6 +88,9 @@ function ticTacToe(row, column) {
     (playerTurn = 'X')
     console.log('O');
   }
+  console.log("this", event)
+  console.log("board", board)
+  document.getElementById('move').innerHTML = ("Player " + playerTurn + "'s Turn");
 }
 
 // function getPrompt() {
