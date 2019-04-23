@@ -34,14 +34,13 @@ function isValid(startStack, endStack) {
 }
 
 function isLegal(startStack, endStack) {
-  if (stacks[startStack][stacks[startStack].length - 1] < stacks[endStack][stacks[endStack].length - 1] || stacks[endStack][stacks[endStack].length - 1] == undefined && stacks[startStack][stacks[startStack].length - 1]  !== undefined) {
-    console.log(stacks[startStack][stacks[startStack].length - 1])
-    console.log(stacks[endStack][stacks[endStack].length - 1])
-    console.log('working')
+  if (stacks[startStack][stacks[startStack].length - 1] < stacks[endStack][stacks[endStack].length - 1] || stacks[endStack][stacks[endStack].length - 1] == undefined && stacks[startStack][stacks[startStack].length - 1] !== undefined) {
+    // console.log(stacks[startStack][stacks[startStack].length - 1])
+    // console.log(stacks[endStack][stacks[endStack].length - 1])
     return true
   } else {
-    console.log(stacks[startStack][stacks[startStack].length - 1])
-    console.log(stacks[endStack][stacks[endStack].length - 1])
+    // console.log(stacks[startStack][stacks[startStack].length - 1])
+    // console.log(stacks[endStack][stacks[endStack].length - 1])
     console.log('Invalid move. Start stack is larger than end stack.')
     return false;
   }
@@ -49,16 +48,20 @@ function isLegal(startStack, endStack) {
 
 function checkForWin(endStack) {
   if (stacks[endStack].length == 4) {
+  // if (stacks.b == [4, 3, 2, 1]) { //turn into a toString()
     console.log('You Win!')
-    return true
+    return true;
   } else return false;
 }
 
 function towersOfHanoi(startStack, endStack) {
   if (isValid(startStack, endStack)) {
     if (isLegal(startStack, endStack)) {
-      movePiece(startStack, endStack)
-      checkForWin(endStack);
+      if (movePiece(startStack, endStack)) {
+        if (checkForWin(endStack)) {
+          return true
+        } else return false;
+      } else return false;
     } else return false;
   } else {
     console.log('Invalid input. Please select a, b, or c.');
