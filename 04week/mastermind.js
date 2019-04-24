@@ -98,7 +98,6 @@ if (typeof describe === 'function') {
     it('should generate hints if solution has duplicates', () => {
       assert.equal(generateHint('aabb'), '1-1');
     });
-
   });
 
 } else {
