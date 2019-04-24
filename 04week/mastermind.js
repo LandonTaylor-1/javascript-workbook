@@ -54,7 +54,7 @@ function generateHint(solution, guess) {
 }
 
 function mastermind(guess) {
-  // solution = 'abcd'; // Comment this out to generate a random solution
+  solution = 'abcd'; // Comment this out to generate a random solution
   if (guess === solution) {
     console.log('You guessed it!')
   } else {
@@ -63,7 +63,7 @@ function mastermind(guess) {
     board += 1;
   }
   if (board.length == 10) {
-    console.log('You ran out of turns! The solution was: ' + solution)
+    console.log(`You ran out of turns! The solution was: ${solution}`)
     return 
   }
 }
