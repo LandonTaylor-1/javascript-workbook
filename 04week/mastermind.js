@@ -54,7 +54,7 @@ function generateHint(solution, guess) {
 }
 
 function mastermind(guess) {
-  // solution = 'abcd'; // Comment this out to generate a random solution
+  solution = 'abcd'; // Comment this out to generate a random solution
   if (guess === solution) {
     console.log('You guessed it!')
   } else {
@@ -87,7 +87,7 @@ if (typeof describe === 'function') {
       assert.equal(board.length, 1);
     });
     it('should be able to detect a win', () => {
-      assert.equal(mastermind(solution), 'You guessed it!');
+      assert.equal(mastermind('abcd'), 'You guessed it!');
     });
   });
 
