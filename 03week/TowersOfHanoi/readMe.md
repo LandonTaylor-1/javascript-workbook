@@ -1,4 +1,4 @@
-- don't check for a win on array a (turn into a test)
+- don't check for a win on array a
 
 - get our user input(startStack,endStack) and then check the rules of the game based on the current object
 
@@ -10,6 +10,10 @@
 
 - should only be able to remove a # from the end of an array and place it at the end of another array.
 
-- if array is empty # are allowed to be moves their
+- if array is empty # is allowed to be moved their
 
 - if you choose am empty array nothing will happen and error message will be console logged out.
+
+- if an array is empty you are not allowed to use as your startStack
+
+- make sure the user only inputs a valid stack
