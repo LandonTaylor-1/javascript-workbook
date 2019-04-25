@@ -67,12 +67,8 @@ function checkForWin() {
 function towersOfHanoi(startStack, endStack) { // our game function just calls our other functions
   if (isValid(startStack, endStack)) {
     if (isLegal(startStack, endStack)) {
-      if (movePiece(startStack, endStack)) {
-        if (checkForWin()) {
-          console.log('You Win!');
-          // return true;
-        } else return false;
-      } else return false;
+      movePiece(startStack, endStack)
+      checkForWin()
     } else return false;
   } else {
     console.log('Invalid input. Please select a, b, or c.');
