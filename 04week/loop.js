@@ -33,12 +33,12 @@ let arrayOfPersons = [
   {
     firstName: "McKinley",
     lastName: "Taylor",
-    birthDate: "May 3, 2016",
+    birthDate: "May 03, 2016",
     gender: "female"},
   {
     firstName: "Kenyan",
     lastName: "Taylor",
-    birthDate: "Apr 2, 2018",
+    birthDate: "Apr 02, 2018",
     gender: "male"
   }
 ];
@@ -59,7 +59,7 @@ let genderMale = arrayOfPersons.filter(function(currentValue) {
 
 // 7. Use .filter() to filter the persons array and console.log only people that were born before Jan 1, 1990.
 let bornBefore = arrayOfPersons.filter(function(currentValue) {
-  let displayBorn = currentValue.birthDate.substring(7, 11);
+  let displayBorn = currentValue.birthDate.substring(8, 12);
   if (displayBorn < 1990) {
   console.log([currentValue.firstName, currentValue.lastName, currentValue.birthDate, currentValue.gender]);
   }
