@@ -13,7 +13,7 @@ let letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function printBoard() {
   for (let i = 0; i < board.length; i++) {
-    console.log(board[i]);
+    //console.log(board[i]);
   }
 }
 
@@ -28,15 +28,45 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
-  // your code here
+function generateHint(solution, guess) {
+  let solutionArray = solution.split('')
+  let guessArray = guess.split('')
+  let correctLetterLocations = 0;
+  for (let i = 0; i < solutionArray.length; i++) {
+    if (solutionArray[i] === guessArray[i]) {
+      correctLetterLocations = correctLetterLocations + 1;
+      solutionArray[i] = null;
+    }
+  }
+  //console.log(correctLetterLocations);
+  //console.log(solutionArray);
+  let correctLetters = 0;
+  for (let j = 0; j < solutionArray.length; j++) {
+    let targetIndex = guessArray.indexOf(solutionArray[j]);
+    if (targetIndex > -1) {
+      correctLetters = correctLetters + 1;
+      solutionArray[j] = null;
+    }
+  }
+  //console.log(correctLetters);
+  console.log(correctLetterLocations + '-' + correctLetters);
+  return correctLetterLocations + '-' + correctLetters;
 }
 
 function mastermind(guess) {
-  solution = 'abcd'; // Comment this out to generate a random solution
-  // your code here
+  //solution = 'abcd'; // Comment this out to generate a random solution
+  if (board.length >= 10) {
+    console.log(`You ran out of turns! The solution was: ${solution}`)
+  } else {
+    if (guess != solution) {
+    let hint = generateHint(solution, guess);
+    board.push(hint)
+    } else {
+      console.log('You guessed it!')
+      return 'You guessed it!';
+    }
+  }
 }
-
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
@@ -62,12 +92,11 @@ if (typeof describe === 'function') {
 
   describe('#generateHint()', () => {
     it('should generate hints', () => {
-      assert.equal(generateHint('abdc'), '2-2');
+      assert.equal(generateHint(solution, 'abdc'), '2-2');
     });
     it('should generate hints if solution has duplicates', () => {
-      assert.equal(generateHint('aabb'), '1-1');
+      assert.equal(generateHint(solution, 'aabb'), '1-1');
     });
-
   });
 
 } else {
