@@ -78,6 +78,7 @@ class Person {
 }
 
 const people = arrOfPeople.map(person => new Person(person));
+console.log(people)
 
 const listPeopleChoices = () => {
   const listElement = document.getElementById('people')
