@@ -32,26 +32,21 @@ const arrOfPeople = [
     name: "Stan Honest",
     age: 20,
     skillSet: "boom-a-rang throwing",
-    placeBorn: "Perth, Australia",
-    isPlayer: true,
-    team: 'red'
+    placeBorn: "Perth, Australia"
   },
   {
     id: 5,
     name: "Mia Watu",
     age: 17,
     skillSet: "acrobatics",
-    placeBorn: "Los Angeles, California",
-    isPlayer: true,
-    team: 'blue'
+    placeBorn: "Los Angeles, California"
   },
   {
     id: 6,
     name: "Walter Cole",
     age: 32,
     skillSet: "jump rope",
-    placeBorn: "New Orleans, Louisiana",
-    isPlayer: true
+    placeBorn: "New Orleans, Louisiana"
   },
 ]
 
@@ -83,6 +78,7 @@ console.log(people)
 const listPeopleChoices = () => {
   const listElement = document.getElementById('people')
   listElement.innerHTML = '';
+  // does not allow you to add the list multiple times
   people.filter(person => !person.isPlayer).map(person => {
     const li = document.createElement("li")
     const button = document.createElement("button")
@@ -124,7 +120,7 @@ const listRedChoices = () => {
     button.innerHTML = "Make Player"
     button.addEventListener('click', function() {makePlayer(person.id)} )
     li.appendChild(button)
-    li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
+    li.appendChild(document.createTextNode(person.name + " - " + person.skillSet + ' - Team Color: Red - Team Mascot: Lobster'))
     listElement.append(li)
   })
 }
@@ -138,7 +134,7 @@ const listBlueChoices = () => {
     button.innerHTML = "Make Player"
     button.addEventListener('click', function() {makePlayer(person.id)} )
     li.appendChild(button)
-    li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
+    li.appendChild(document.createTextNode(person.name + " - " + person.skillSet + ' - Team Color: Blue - Team Mascot: Jay'))
     listElement.append(li)
   })
 }
@@ -215,5 +211,3 @@ const listPeople = () => {
   listPeopleChoices();
   listPlayerChoices();
 }
-
-listPeople();
