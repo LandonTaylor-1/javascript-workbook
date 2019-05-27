@@ -1,3 +1,8 @@
+'use strict';
+
+// let assert = require('assert');
+
+// changing ids to make an easier call
 const arrOfPeople = [
   {
     id: 0,
@@ -50,10 +55,6 @@ const arrOfPeople = [
   },
 ]
 
-// const listOfPlayers = []
-// const blueTeam = []
-// const redTeam = []
-
 class Person {
   constructor(person) {
     this.id = person.id;
@@ -72,41 +73,69 @@ class Person {
   }
 }
 
+//creating a new instance of each person in the array
 const people = arrOfPeople.map(person => new Person(person));
 console.log(people)
 
+// creating a function that lists the people
 const listPeopleChoices = () => {
+  // attaching to the DOM
   const listElement = document.getElementById('people')
+  // does not allow multiple of the same list
   listElement.innerHTML = '';
-  // does not allow you to add the list multiple times
+  // filtering through people who are not already players
+  // mapping through each person to make a new array of players
   people.filter(person => !person.isPlayer).map(person => {
+    // create new list elements 
     const li = document.createElement("li")
+    // create new button elements
     const button = document.createElement("button")
+    // content inside the button
     button.innerHTML = "Make Player"
+    // onclick function that moves from people to player array
     button.addEventListener('click', function() {makePlayer(person.id)} )
+    // attaching button to list element
     li.appendChild(button)
+    // attaching persons name & skill to the list element
     li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
+    // appending list element to the DOM
     listElement.append(li)
   })
 }
 
+// creating a function that lists the players
 const listPlayerChoices = () => {
+  // attaching to the DOM
   const listElement = document.getElementById('players')
+  // does not allow multiple of the same list
   listElement.innerHTML = '';
+  // filtering through players who are not already on a team
+  // mapping through each person to make a new array of teams
   people.filter(person => person.isPlayer && !person.team).map(person => {
+    // creating a new list element
     const li = document.createElement("li")
-
+  
+    // creating a new button element
     const buttonRed = document.createElement("button")
+    // content inside the button
     buttonRed.innerHTML = "Make Red"
+    // onclick function that moves players to red team
     buttonRed.addEventListener('click', function() {makeRed(person.id)} )
+    // appends it to the list element
     li.appendChild(buttonRed)
 
+    // creating a new button element
     const buttonBlue = document.createElement("button")
+    // content inside the button
     buttonBlue.innerHTML = "Make Blue"
+    // onclick function that moves players to the blue team
     buttonBlue.addEventListener('click', function() {makeBlue(person.id)} )
+    // appends it to the DOM
     li.appendChild(buttonBlue)
 
+    // attahcing persons name & skill to the list element
     li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
+    // appending the list element to the DOM
     listElement.append(li)
   })
 }
@@ -139,75 +168,49 @@ const listBlueChoices = () => {
   })
 }
 
-
-// class player {
-//   constructor(){}
-// }
-
-// class blueTeammate {
-//   constructor(){}
-// }
-
-// class redTeammate {
-//   constructor(){}
-// }
-
-// const listPeopleChoices = () => {
-//   const listElement = document.getElementById('people')
-//   listElement.innerHTML = '';
-//   arrOfPeople.map(person => {
-//     const li = document.createElement("li")
-//     const button = document.createElement("button")
-//     button.innerHTML = "Make Player"
-//     button.addEventListener('click', function() {makePlayer(person.id)} )
-//     li.appendChild(button)
-//     li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
-//     listElement.append(li)
-//   })
-// }
-
-// const listPlayerChoices = () => {
-//   const listElement = document.getElementById('players')
-//   listElement.innerHTML = '';
-//   listOfPlayers.map(person => {
-//     const li = document.createElement("li")
-//     const buttonRed = document.createElement("button")
-//     buttonRed.innerHTML = "Make Red"
-//     buttonRed.addEventListener('click', function() {makePlayer(person.id)} )
-//     li.appendChild(buttonRed)
-//     li.appendChild(document.createTextNode(person.name + " - " + person.skillSet))
-//     listElement.append(li)
-//   })
-// }
-
-
+// called on a button click and the calls the listPeople function that will display the arrays
 const makePlayer = (id) => {
   console.log(`li ${id} was clicked!`)
   people.find(person => person.id === id).isPlayer = true;
   listPeople();
 }
 
+// called on a button click and the calls the listPeople function that will display the arrays
 const makeRed = (id) => {
   console.log(`li ${id} was clicked!`)
   people.find(person => person.id === id).team = 'red';
   listPeople();
 }
 
+// called on a button click and the calls the listPeople function that will display the arrays
 const makeBlue = (id) => {
   console.log(`li ${id} was clicked!`)
   people.find(person => person.id === id).team = 'blue';
   listPeople();
 }
 
+// called on a button click and the calls the listPeople function that will display the arrays
 const makePerson = (id) => {
   console.log(`li ${id} was clicked!`)
   people.find(person => person.id === id).isPlayer = false;
   listPeople();
 }
 
+// master functions that calls all other functions that displays the arrays to the DOM
 const listPeople = () => {
   listBlueChoices()
   listRedChoices()
   listPeopleChoices();
   listPlayerChoices();
 }
+
+if (typeof describe === 'function') {
+  describe('makePlayer()', () => {
+    it('should move to player array', () => {
+      makePlayer(person[0]);
+      assert.equal(person.isPlayer, true);
+    });
+    });
+  };
+
+  
