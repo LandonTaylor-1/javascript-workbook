@@ -1,29 +1,30 @@
-App Idea: Lyft for Dogs
+App Idea: Virtual ETT Goggles
+
 Why it needs to exist(what problem does it solve?)
+    - Manual ETT Goggles are expensive and not manufactured well
+    - Virtual ETT Goggles will provide remote accessibility
+    - Virtual ETT Goggles may allow for further advancement in therapy technology
 
-Dogs need to get places too:
-To the vet
-To the dog park
-To the pet sitter
-How it solves the problem.
+How does it solve the problem?
+    - Virtual ETT Goggles will provide the client the ability to download the app and receive instruction over the phone while experiencing the therapy at the same time. Currently the only option is to receive the therapy in person.
+    - Virtual ETT Goggles may also provide the possibility to advance the therapy by offering different color and/or a flicker option.
 
-Now pet owners can call transportation from anywhere for their pet to get anywhere!
-Professionally trained people will be handling your pet in their car, making sure they get to their destination safely
-What the app is and how it works
+What is the app?
+    - ETT - Emotional Transformation Therapy
+    - ETT Goggles work in a way that enables the brain to provide pathways of impulses a different routes.
+    - This is caused by allowing light to enter the pupil in a specific way.
+    - The app will provide the Operator to send specific signals of light to the Client.
 
-Pet owners use it just like Lyft, but instead of them getting picked up it's their dog
-It will show the GPS coordinates of their dog and instructions on how to get their dog
-Show the class your first few pages of the web app.
+How does it work?
+    - Operator View
+        ~ The operator will be able to sign in and then connect to the Client.
+        ~ The operator will then be able to send signal through the app to appear on the Client's view.
+    - Client View
+        ~ The client will only be able to download and view the signals being sent by the operator.
 
-Picture of a wireframe, or HTML/CSS mock up of what the landing page will look like
 What technologies will you use
+    - I have zero idea at this point
+    - I am guessing React?
 
-I'd like to try to use ReactJS
-I might need a database but I don't know anything about that yet
-I might use a Maps API like MapBox.io
 What questions do YOU have about your app?
-
-Is the technology choices correct?
-What is a good MVP (minumum viable product)
-Anything to add that would make it a better idea?
-Receive feedback/questions from the class
+    - Is this idea possible and what resources I would need to accomplish it?
