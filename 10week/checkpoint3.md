@@ -1,6 +1,6 @@
 App Idea: Virtual ETT Goggles
 
-Why it needs to exist(what problem does it solve?)
+Why it needs to exist(what problem does it solve?)<br>
     - Manual ETT Goggles are expensive and not manufactured well
     - Virtual ETT Goggles will provide remote accessibility
     - Virtual ETT Goggles may allow for further advancement in therapy technology
